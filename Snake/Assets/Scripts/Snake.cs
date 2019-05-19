@@ -50,4 +50,12 @@ public class Snake : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision");
+        GameObject newTemp = Instantiate(snakeCell);
+        newTemp.transform.parent = transform.parent;
+        Destroy(collision.collider.gameObject);
+    }
+
 }
