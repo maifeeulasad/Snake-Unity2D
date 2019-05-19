@@ -6,16 +6,16 @@ public class Snake : MonoBehaviour
 {
 
     public GameObject snakeCell;
-    List<GameObject> cells = new List<GameObject>();
 
-    
-    
+    void Awake()
+    {
+
+        StartCoroutine(MoveSnake());
+    }
+
     void LateUpdate()
     {
-        foreach(Transform child in transform)
-        {
-            cells.Add(child.gameObject);
-        }
+        
         if (Input.GetKeyDown(KeyCode.W) && Util.direction!=Util.down)
         {
             Util.direction = Util.up;
@@ -34,9 +34,20 @@ public class Snake : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    IEnumerator MoveSnake()
     {
-        Debug.Log("collision");
+        while(true)
+        {
+            transform.GetChild(0).transform.position += Util.direction;
+            int len = transform.childCount;
+            for (int i = 1; i < len; i++)
+            {
+                transform.GetChild(i).transform.position = transform.GetChild(i - 1).transform.position;
+            }
+            yield return new WaitForSeconds(1f);
+
+        }
+
     }
 
 }

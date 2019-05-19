@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
-    public static Vector3 direction = right;
+    public static Vector3 direction = new Vector3();
+
 
     public static Vector3 up = new Vector3(0, 0.32f, 0);
     public static Vector3 down = new Vector3(0, -0.32f, 0);
