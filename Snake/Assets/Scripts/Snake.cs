@@ -16,21 +16,21 @@ public class Snake : MonoBehaviour
         {
             cells.Add(child.gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && Util.direction!=Util.down)
         {
-            cells[0].transform.position += Util.up;
+            Util.direction = Util.up;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && Util.direction != Util.up)
         {
-            cells[0].transform.position += Util.down;
+            Util.direction = Util.down;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && Util.direction != Util.right)
         {
-            cells[0].transform.position += Util.left;
+            Util.direction = Util.left;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && Util.direction != Util.left)
         {
-            cells[0].transform.position += Util.right;
+            Util.direction = Util.right;
         }
     }
 
