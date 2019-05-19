@@ -16,18 +16,27 @@ public class Snake : MonoBehaviour
         {
             cells.Add(child.gameObject);
         }
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            cells[0].transform.position
+            cells[0].transform.position += Util.up;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            cells[0].transform.position += Util.down;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            cells[0].transform.position += Util.left;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            cells[0].transform.position += Util.right;
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag.Equals("food"))
-        {
-            Destroy(collision.collider.gameObject);
-        }
+        Debug.Log("collision");
     }
 
 }

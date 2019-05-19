@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static Vector3 up = new Vector3(0, 0.32f, 0);
+    public static Vector3 down = new Vector3(0, -0.32f, 0);
+    public static Vector3 left = new Vector3(-0.32f, 0, 0);
+    public static Vector3 right = new Vector3(0.32f, 0, 0);
+
+
 }
